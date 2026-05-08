@@ -1,0 +1,35 @@
+# databricks.yml
+bundle:
+  name: RG_IMAGE
+
+workspace:
+  host: https://dbc-e3e6acd6-8550.cloud.databricks.com/
+
+resources:
+  jobs:
+    deepfake_training_pipeline:
+      name: "RG_IMAGE - Full Pipeline"
+      tasks:
+        - task_key: setup
+          notebook_task:
+            notebook_path: ./notebooks/00_setup.py
+
+        - task_key: ingest
+          depends_on: [{task_key: setup}]
+          notebook_task:
+            notebook_path: ./notebooks/01_data_ingestion.py
+
+        - task_key: process
+          depends_on: [{task_key: ingest}]
+          notebook_task:
+            notebook_path: ./notebooks/02_data_processing.py
+
+        - task_key: train
+          depends_on: [{task_key: process}]
+          notebook_task:
+            notebook_path: ./notebooks/04_model_training.py
+
+        - task_key: register
+          depends_on: [{task_key: train}]
+          notebook_task:
+            notebook_path: ./notebooks/05_model_registry.py
