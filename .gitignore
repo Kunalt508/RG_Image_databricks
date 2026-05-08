@@ -1,9 +1,13 @@
 .rg/
 __pycache__/
 *.pyc
+*.pyo
 .databricks/
 .env
 *.log
 .DS_Store
 dist/
 *.egg-info/
+.ipynb_checkpoints/
+*.pt
+*.pth
