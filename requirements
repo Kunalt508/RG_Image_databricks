@@ -1,0 +1,6 @@
+torch==2.3.0
+torchvision==0.18.0
+pillow==10.3.0
+kaggle==1.6.14
+opencv-python-headless==4.9.0.80
+seaborn==0.13.2
