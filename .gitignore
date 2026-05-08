@@ -1,9 +1,0 @@
-.rg/
-__pycache__/
-*.pyc
-.databricks/
-.env
-*.log
-.DS_Store
-dist/
-*.egg-info/
